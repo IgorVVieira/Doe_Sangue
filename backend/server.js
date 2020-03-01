@@ -2,6 +2,7 @@
 const express = require("express");
 const server = express();
 const nunjucks = require("nunjucks");
+const donors = require('./Donors.js');
 const port = 3000;
 
 // Configurar server p/ apresentar arquivos estáticos(.js, .css ... )
@@ -16,30 +17,6 @@ nunjucks.configure('../frontend', {
     noCache: true,
 });
 
-// Array de doadores
-const donors = [
-    {
-        name: "Igor Vitor",
-        blood: "AB+",
-
-    },
-    {
-        name: "Amanda Lopes",
-        blood: "O-",
-
-    },
-    {
-        name: "Fátima Aparecida",
-        blood: "A+",
-
-    },
-    {
-        name: "Waldir Vieira",
-        blood: "B+",
-
-    },
-]
-
 // Configurar a apresentação da página
 server.get("/", (req, res) => {
     return res.render('index.html', { donors });
@@ -53,8 +30,8 @@ server.post('/', (req, res) => {
 
     // Adiciona doadores ao vetor
     donors.push({
-        name: name,
-        blood: blood,
+        name,
+        blood,
     });
     return res.redirect('/');
 });
