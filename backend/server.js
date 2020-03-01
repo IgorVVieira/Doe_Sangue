@@ -1,9 +1,9 @@
 //Pegar o express e colocar na const express, configurando server
-const express = require("express");
+const express = require('express');
 const server = express();
-const nunjucks = require("nunjucks");
-const donors = require('./Donors.js');
-const port = 3000;
+const nunjucks = require('nunjucks');
+const portServer = 3000;
+const db = require('./Connection.js');
 
 // Configurar server p/ apresentar arquivos estáticos(.js, .css ... )
 server.use(express.static('../frontend/public'));
@@ -19,7 +19,13 @@ nunjucks.configure('../frontend', {
 
 // Configurar a apresentação da página
 server.get("/", (req, res) => {
-    return res.render('index.html', { donors });
+    db.query('SELECT * from donors', (err, result) => {
+        if (err) {
+            return res.send('Erro de banco de dados');
+        }
+        const donors = result.rows;
+        return res.render('index.html', { donors });
+    });
 });
 
 server.post('/', (req, res) => {
@@ -28,15 +34,23 @@ server.post('/', (req, res) => {
     const email = req.body.email;
     const blood = req.body.blood;
 
-    // Adiciona doadores ao vetor
-    donors.push({
-        name,
-        blood,
+    if (name == "" || email == "" || blood == "") {
+        return res.send('Todos os campos são obrigatórios para preencher!');
+    }
+    // Adiciona doadores do banco
+    const query = `
+    INSERT INTO donors ("name", "email", "blood") 
+    VALUES($1, $2, $3)`;
+
+    const values = [name, email, blood];
+
+    db.query(query, values, (err) => {
+        if (err) return res.send('Erro no banco de dados.');
+        return res.redirect('/');
     });
-    return res.redirect('/');
 });
 
 //Servidor "escuta" a porta especificada
-server.listen(port, () => {
+server.listen(portServer, () => {
     console.log("Iniciei o servidor.");
 });
