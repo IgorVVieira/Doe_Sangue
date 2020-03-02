@@ -34,9 +34,21 @@ server.post('/', (req, res) => {
     const email = req.body.email;
     const blood = req.body.blood;
 
+    const bloods = [
+        'A+', 'A-', 'B+', 'B-', 'AB+', 'O+', 'O-', 'AB-'
+    ];
+
+    // const verificaSangue = (blood) => {
+    //     for (let i = 0; i < bloods.length; i++) {
+    //         if (blood != bloods[i]) {
+    //             return res.send("Tipo sangúineo inválido");
+    //         }
+    //     }
+    // }
     if (name == "" || email == "" || blood == "") {
         return res.send('Todos os campos são obrigatórios para preencher!');
     }
+    // verificaSangue(blood);
     // Adiciona doadores do banco
     const query = `
     INSERT INTO donors ("name", "email", "blood") 
