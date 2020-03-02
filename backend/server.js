@@ -3,7 +3,7 @@ const express = require('express');
 const server = express();
 const nunjucks = require('nunjucks');
 const portServer = 3000;
-const db = require('./Connection.js');
+const db = require('./Connection.js').default;
 
 // Configurar server p/ apresentar arquivos estáticos(.js, .css ... )
 server.use(express.static('../frontend/public'));
@@ -38,17 +38,14 @@ server.post('/', (req, res) => {
         'A+', 'A-', 'B+', 'B-', 'AB+', 'O+', 'O-', 'AB-'
     ];
 
-    // const verificaSangue = (blood) => {
-    //     for (let i = 0; i < bloods.length; i++) {
-    //         if (blood != bloods[i]) {
-    //             return res.send("Tipo sangúineo inválido");
-    //         }
-    //     }
-    // }
     if (name == "" || email == "" || blood == "") {
         return res.send('Todos os campos são obrigatórios para preencher!');
     }
-    // verificaSangue(blood);
+    // Verifica se o tipo sanguíneo está incorreto
+    else if (bloods.indexOf(blood) === -1) {
+        return res.send('O tipo sanguíneo está incorreto');
+    }
+
     // Adiciona doadores do banco
     const query = `
     INSERT INTO donors ("name", "email", "blood") 
@@ -57,7 +54,9 @@ server.post('/', (req, res) => {
     const values = [name, email, blood];
 
     db.query(query, values, (err) => {
-        if (err) return res.send('Erro no banco de dados.');
+        if (err) {
+            return res.send('Erro no banco de dados.');
+        }
         return res.redirect('/');
     });
 });
