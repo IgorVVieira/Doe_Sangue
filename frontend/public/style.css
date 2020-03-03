@@ -35,7 +35,7 @@ header, .form, main {
     width: 90%;
     max-width: 500px;
 }
-header button {
+header button, #btnLimpar {
     margin-top: 16px;
     padding: 8px 16px;
     border-radius: 4px;

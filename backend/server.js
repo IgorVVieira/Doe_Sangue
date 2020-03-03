@@ -1,9 +1,10 @@
 //Pegar o express e colocar na const express, configurando server
 const express = require('express');
 const server = express();
-const nunjucks = require('nunjucks');
 const portServer = 3000;
-const db = require('./Connection.js').default;
+const nunjucks = require('nunjucks');
+const db = require('./Connection.js');
+const bloods = require('./Bloods.js');
 
 // Configurar server p/ apresentar arquivos estáticos(.js, .css ... )
 server.use(express.static('../frontend/public'));
@@ -33,10 +34,6 @@ server.post('/', (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const blood = req.body.blood;
-
-    const bloods = [
-        'A+', 'A-', 'B+', 'B-', 'AB+', 'O+', 'O-', 'AB-'
-    ];
 
     if (name == "" || email == "" || blood == "") {
         return res.send('Todos os campos são obrigatórios para preencher!');
