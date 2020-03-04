@@ -1,3 +1,6 @@
+-- Criando o banco
+CREATE database "doadores";
+
 --Inserrir dados no Banco.
 INSERT INTO "donors" ("name", "email", "blood")
 VALUES ('Igor Vitor', 'igor.vitor@gmail.com', 'A+');

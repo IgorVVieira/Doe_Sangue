@@ -58,6 +58,17 @@ server.post('/', (req, res) => {
     });
 });
 
+// Deletar todos os donors
+server.post('/delete', (req, res) => {
+    const queryDelete = `DELETE from "donors";`;
+    db.query(queryDelete, (err) => {
+        if (err) {
+            return res.send('Erro no banco de dados.');
+        }
+        return res.redirect('/');
+    });
+});
+
 //Servidor "escuta" a porta especificada
 server.listen(portServer, () => {
     console.log("Iniciei o servidor.");
