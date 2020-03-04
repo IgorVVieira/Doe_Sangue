@@ -58,9 +58,20 @@ server.post('/', (req, res) => {
     });
 });
 
+// Deletar um doador
+server.post('/deleteOne', (req, res) => {
+    const queryDel = `DELETE FROM "donors" WHERE name = ${global.name} `;
+    db.query(queryDel, (err) => {
+        if (err) {
+            return res.send('Erro no banco de dados');
+        }
+        return res.redirect('/');
+    })
+});
+
 // Deletar todos os donors
 server.post('/delete', (req, res) => {
-    const queryDelete = `DELETE from "donors";`;
+    const queryDelete = `DELETE FROM "donors"`;
     db.query(queryDelete, (err) => {
         if (err) {
             return res.send('Erro no banco de dados.');
