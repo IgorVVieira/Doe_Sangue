@@ -9,6 +9,13 @@ Sistema Web para cadastro de possíveis doadores de sangue, no projeto Maratona 
 - Node.js;
 - Ter um SGBD intalado e configurado na máquina local.
 ```
+## Como Executar
+```
+> cd backend
+> npm start
+> Abrir navegador
+> Digitar: localhost:3000
+```
 
 ## Construído com
 * [Visual Studio Code](https://code.visualstudio.com/) - O editor utilizado.
