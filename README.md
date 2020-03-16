@@ -1,4 +1,4 @@
-# Doe_Sangue
+# Doe_Sangue 💉
 Sistema Web para cadastro de possíveis doadores de sangue, no projeto Maratona Dev da [Rocketseat](https://github.com/Rocketseat).
 
 **Palavras chave:** JavaScript, Node.js, PostgreSQL.
@@ -9,7 +9,7 @@ Sistema Web para cadastro de possíveis doadores de sangue, no projeto Maratona 
 - Node.js;
 - Ter um SGBD intalado e configurado na máquina local.
 ```
-## Como Executar
+## Como Executar 🤔
 ```
 > cd backend
 > npm start
