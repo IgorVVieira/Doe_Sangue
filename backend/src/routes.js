@@ -1,35 +1,38 @@
-//Pegar o express e colocar na const express, configurando server
 const express = require('express');
-const server = express();
-const portServer = 3000;
+const routes = express();
 const nunjucks = require('nunjucks');
-const db = require('./Connection.js');
-const bloods = require('./Bloods.js');
+const db = require('./Connection');
+const bloods = require('./Bloods');
+
 
 // Configurar server p/ apresentar arquivos estáticos(.js, .css ... )
-server.use(express.static('../frontend/public'));
+routes.use(express.static('../frontend/public'));
 
 //Habilitar body do form
-server.use(express.urlencoded({ extended: true }));
+routes.use(express.urlencoded({
+    extended: true
+}));
 
 // Configurando a template engine(nunjucks)
 nunjucks.configure('../frontend', {
-    express: server,
+    express: routes,
     noCache: true,
 });
 
 // Configurar a apresentação da página
-server.get("/", (req, res) => {
+routes.get("/", (req, res) => {
     db.query('SELECT * from donors', (err, result) => {
         if (err) {
             return res.send('Erro de banco de dados');
         }
         const donors = result.rows;
-        return res.render('index.html', { donors });
+        return res.render('index.html', {
+            donors
+        });
     });
 });
 
-server.post('/', (req, res) => {
+routes.post('/', (req, res) => {
     // Pegar dados do form
     const name = req.body.name;
     const email = req.body.email;
@@ -59,7 +62,7 @@ server.post('/', (req, res) => {
 });
 
 // Deletar um doador
-server.post('/deleteOne', (req, res) => {
+routes.post('/deleteOne', (req, res) => {
     const queryDel = `DELETE FROM "donors" WHERE name = ${global.name} `;
     db.query(queryDel, (err) => {
         if (err) {
@@ -70,7 +73,7 @@ server.post('/deleteOne', (req, res) => {
 });
 
 // Deletar todos os donors
-server.post('/delete', (req, res) => {
+routes.delete('/delete', (req, res) => {
     const queryDelete = `DELETE FROM "donors"`;
     db.query(queryDelete, (err) => {
         if (err) {
@@ -80,7 +83,4 @@ server.post('/delete', (req, res) => {
     });
 });
 
-//Servidor "escuta" a porta especificada
-server.listen(portServer, () => {
-    console.log("Iniciei o servidor.");
-});
+module.exports = routes;
