@@ -1,27 +1,11 @@
 const express = require('express');
-const routes = express();
-const nunjucks = require('nunjucks');
-const db = require('./Connection');
-const bloods = require('./Bloods');
-
-
-// Configurar server p/ apresentar arquivos estáticos(.js, .css ... )
-routes.use(express.static('../frontend/public'));
-
-//Habilitar body do form
-routes.use(express.urlencoded({
-    extended: true
-}));
-
-// Configurando a template engine(nunjucks)
-nunjucks.configure('../frontend', {
-    express: routes,
-    noCache: true,
-});
+const routes = express.Router();
+const connection = require('./database/Connection');
+const bloods = require('./models/Bloods');
 
 // Configurar a apresentação da página
-routes.get("/", (req, res) => {
-    db.query('SELECT * from donors', (err, result) => {
+routes.get('/', (req, res) => {
+    connection.query('SELECT * from donors', (err, result) => {
         if (err) {
             return res.send('Erro de banco de dados');
         }
@@ -38,7 +22,7 @@ routes.post('/', (req, res) => {
     const email = req.body.email;
     const blood = req.body.blood;
 
-    if (name == "" || email == "" || blood == "") {
+    if (name === "" || email === "" || blood === "") {
         return res.send('Todos os campos são obrigatórios para preencher!');
     }
     // Verifica se o tipo sanguíneo está incorreto
@@ -53,7 +37,7 @@ routes.post('/', (req, res) => {
 
     const values = [name, email, blood];
 
-    db.query(query, values, (err) => {
+    connection.query(query, values, (err) => {
         if (err) {
             return res.send('Erro no banco de dados.');
         }
@@ -61,10 +45,10 @@ routes.post('/', (req, res) => {
     });
 });
 
-// Deletar um doador
-routes.post('/deleteOne', (req, res) => {
+// Deletar um doador (Está errado por enquanto)
+routes.delete('/deleteOne', (req, res) => {
     const queryDel = `DELETE FROM "donors" WHERE name = ${global.name} `;
-    db.query(queryDel, (err) => {
+    connection.query(queryDel, (err) => {
         if (err) {
             return res.send('Erro no banco de dados');
         }
@@ -73,9 +57,9 @@ routes.post('/deleteOne', (req, res) => {
 });
 
 // Deletar todos os donors
-routes.delete('/delete', (req, res) => {
+routes.get('/delete', (req, res) => {
     const queryDelete = `DELETE FROM "donors"`;
-    db.query(queryDelete, (err) => {
+    connection.query(queryDelete, (err) => {
         if (err) {
             return res.send('Erro no banco de dados.');
         }
