@@ -22,7 +22,7 @@
 
     <section class="form hide">
         <h2>Entre na lista de doadores</h2>
-        <form action="/" method="POST">
+        <form action="/insert" method="POST">
             <input type="text" name="name" placeholder="Nome Completo" id="name">
             <input type="text" name="email" placeholder="Email" id="email">
             <input type="text" name="blood" placeholder="Tipo Sanguineo" id="blood">
@@ -42,10 +42,6 @@
             {% endfor %}
 
         </section>
-
-        <form action="/deleteOne" method="DELETE">
-            <button id="btnLimpar">Deletar último doador</button>
-        </form>
 
         <form action="/delete" method="GET">
             <button id="btnLimpar">Deletar todos doadores</button>
