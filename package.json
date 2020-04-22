@@ -10,9 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.0.2",
     "express": "^4.17.1",
+    "mysql2": "^2.1.0",
     "nodemon": "^2.0.2",
-    "nunjucks": "^3.2.1",
-    "pg": "^7.18.2"
+    "sequelize": "^5.21.6"
   }
 }

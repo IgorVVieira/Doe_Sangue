@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doe sangue! Doe vida</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <img class="logo" src="/logo.png" alt="Imagem Doe">
+        <img class="logo" src="/img/logo.png" alt="Imagem Doe">
         <h2>A sua doação importa</h2>
         <p>Até 3 vidas com uma doação</p>
         <p>Mais de 38.000 doações são necessárias todos os dias</p>
@@ -23,9 +23,9 @@
     <section class="form hide">
         <h2>Entre na lista de doadores</h2>
         <form action="/insert" method="POST">
-            <input type="text" name="name" placeholder="Nome Completo" id="name">
-            <input type="text" name="email" placeholder="Email" id="email">
-            <input type="text" name="blood" placeholder="Tipo Sanguineo" id="blood">
+            <input type="text" name="name" placeholder="Nome Completo" id="name" required>
+            <input type="text" name="email" placeholder="Email" id="email" required>
+            <input type="text" name="blood" placeholder="Tipo Sanguineo" id="blood" required>
             <button>Quero ajudar</button>
         </form>
     </section>
@@ -34,12 +34,12 @@
         <h2>Últimos <span>doadores</span></h2>
         <section class="donors">
 
-            {% for donor in donors %}
+            <% for(let i = 0; i < donors.length; i++) { %>
             <div class="donor">
-                <div class="blood">{{donor.blood}}</div>
-                <p>{{donor.name}}</p>
+                <div class="blood"><%= donors[i].blood %></div>
+                <p><%= donors[i].name %></p>
             </div>
-            {% endfor %}
+            <% } %>
 
         </section>
 
@@ -48,7 +48,7 @@
         </form>
 
     </main>
-    <script src="/scripts.js"></script>
+    <script src="/js/scripts.js"></script>
     <footer>Doe 💉, doe ❤.</footer>
 </body>
 
