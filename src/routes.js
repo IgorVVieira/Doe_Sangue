@@ -12,4 +12,7 @@ routes.post('/insert', DonorsController.insert);
 // Deletar todos os donors
 routes.get('/delete', DonorsController.delete);
 
+//Lista donors com tipo sanguíneo específico
+routes.post('/listDonors', DonorsController.listDonors);
+
 module.exports = routes;

@@ -1,16 +1,18 @@
-html,body {
+html,
+body {
     margin: 0;
 }
 
-h1, h2{
+h1,
+h2 {
     color: #000000cc;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -19,23 +21,31 @@ body{
 }
 
 /* Títulos*/
-header h1, main h2 {
+header h1,
+main h2 {
     margin-bottom: 70px;
 }
 
 /* Estruturas*/
 /* Alinhamentos, espaçamentos, larguras e alturas*/
-header, main, footer {
+header,
+main,
+footer {
     text-align: center;
 }
 
-header, .form, main {
+header,
+.form,
+main {
     margin: 0 auto 70px auto;
     /* Limites dos elementos da página*/
     width: 90%;
     max-width: 500px;
 }
-header button, #btnLimpar {
+
+header button,
+#btnLimpar,
+#list button {
     margin-top: 16px;
     padding: 8px 16px;
     border-radius: 4px;
@@ -45,7 +55,7 @@ header button, #btnLimpar {
     font-weight: bold;
 }
 
-.logo{
+.logo {
     width: 120px;
     margin: 70px 0;
 }
@@ -63,9 +73,10 @@ section.form {
     background-color: #ff4f4f;
     padding: 16px 64px;
     border-radius: 6px;
-} 
+}
 
-form input, form button {
+form input,
+form button {
     width: 100%;
     margin-bottom: 4px;
     /* preenchimeto */
@@ -75,7 +86,7 @@ form input, form button {
     border: 1px #ffffff88 solid;
 }
 
-form input{
+form input {
     background-color: transparent;
 }
 
@@ -100,10 +111,10 @@ main .donors {
 }
 
 main h2 span {
-    color:red;
+    color: red;
 }
 
-.blood { 
+.blood {
     color: #ff4f4f;
     font-weight: bold;
     font-size: 12px;
@@ -119,10 +130,10 @@ main h2 span {
     width: 40px;
     height: 40px;
     position: absolute;
-     /* Fazer a gotinha*/
-     border-radius: 50%;
-     border-top-right-radius: 0;
-     transform: rotate(-45deg);
+    /* Fazer a gotinha*/
+    border-radius: 50%;
+    border-top-right-radius: 0;
+    transform: rotate(-45deg);
 }
 
 .donor p {
@@ -131,7 +142,7 @@ main h2 span {
     font-size: 14px;
 }
 
-footer{
+footer {
     margin-top: auto;
     padding: 16px;
     border: 1px solid #eee;

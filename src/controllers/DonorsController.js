@@ -14,9 +14,13 @@ module.exports = {
         const email = req.body.email;
         const blood = req.body.blood;
 
+        const word = 'Sangue';
         // Verifica se o tipo sanguíneo está incorreto
         if (bloods.indexOf(blood) === -1) {
-            return res.send('O tipo sanguíneo está incorreto');
+            return res.render('error', {
+                blood,
+                word,
+            });
         }
 
         // Adiciona doadores do banco
@@ -34,5 +38,23 @@ module.exports = {
             truncate: true
         });
         return res.redirect('/');
+    },
+    async listDonors(req, res) {
+        const blood = req.body.blood;
+        const donors = await Donors.findAll({
+            where: {
+                blood: blood,
+            },
+        });
+        const word = 'Doador';
+        if (donors[0] === undefined) {
+            return res.render('error', {
+                blood,
+                word
+            });
+        }
+        return res.render('donors', {
+            donors
+        });
     },
 };
