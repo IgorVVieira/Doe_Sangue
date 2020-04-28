@@ -24,7 +24,7 @@ module.exports = {
         }
 
         // Adiciona doadores do banco
-        const donor = await Donors.create({
+        await Donors.create({
             name,
             email,
             blood,
@@ -32,13 +32,6 @@ module.exports = {
         return res.redirect('/');
     },
 
-    async delete(req, res) {
-        await Donors.destroy({
-            where: {},
-            truncate: true
-        });
-        return res.redirect('/');
-    },
     async listDonors(req, res) {
         const blood = req.body.blood;
         const donors = await Donors.findAll({
@@ -50,11 +43,20 @@ module.exports = {
         if (donors[0] === undefined) {
             return res.render('error', {
                 blood,
-                word
+                word,
             });
         }
         return res.render('donors', {
             donors
         });
     },
+
+    async delete(req, res) {
+        await Donors.destroy({
+            where: {},
+            truncate: true,
+        });
+        return res.redirect('/');
+    },
+
 };

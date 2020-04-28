@@ -1,4 +1,3 @@
-//Pegar o express e colocar na const express, configurando server
 const express = require('express');
 const app = express();
 const routes = require('./routes');
@@ -13,18 +12,25 @@ connection.authenticate()
         console.log(`Erro: ${err}`);
     });
 
-app.set('view engine', 'ejs');
+const config = () => {
+    app.set('view engine', 'ejs');
 
-// Configurar server p/ apresentar arquivos estáticos(.js, .css ... )
-app.use(express.static('./public'));
+    // Configurar server p/ apresentar arquivos estáticos(.js, .css) na pasta public
+    app.use(express.static('./public'));
 
-//Habilitar body do html
-app.use(express.urlencoded({
-    extended: true
-}));
+    //Habilitar body do ejs
+    app.use(express.urlencoded({
+        extended: true
+    }));
 
-app.use(routes);
+    app.use(routes);
+}
 
-app.listen(port, () => {
+config();
+
+app.listen(port, (err) => {
+    if (err) {
+        return console.log(`Ocorreu um erro: ${err}`);
+    }
     console.log("Iniciei o servidor.");
 });
