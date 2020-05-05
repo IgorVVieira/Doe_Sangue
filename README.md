@@ -17,7 +17,7 @@ Web system for possible blood donors, made in the [Rocketseat](https://github.co
 
 
 ## Versions
-VERSÃO 1.0
+VERSION 1.0
 * Front-end finished.
 * Back-end finished.
 
