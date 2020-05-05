@@ -1,33 +1,25 @@
 # Doe_Sangue 💉
-Sistema Web para cadastro de possíveis doadores de sangue, no projeto Maratona Dev da [Rocketseat](https://github.com/Rocketseat).
+Web system for possible blood donors, made in the [Rocketseat](https://github.com/Rocketseat) Dev Marathon. 
 
-**Palavras chave:** JavaScript, Node.js, MySQL.
+**Key words:** JavaScript, Node.js, MySQL, Sequelize.
 
-## Pré-requisitos
+## How to Execute 🤔
 ```
-- Editor de texto de sua preferência;
-- Node.js;
-- Ter um SGBD intalado e configurado na máquina local.
-```
-## Como Executar 🤔
-```
-> cd backend
+> npm install
 > npm start
-> Abrir navegador
-> Digitar: localhost:3000
+> localhost:3000
 ```
 
-## Construído com
-* [Visual Studio Code](https://code.visualstudio.com/) - O editor utilizado.
+## Made with
+* [Visual Studio Code](https://code.visualstudio.com/) - Code editor.
 * [Node.js](https://nodejs.org/en/).
-* [MySQL Workbench](https://www.mysql.com/products/workbench/) - O SGBD utilizado.
+* [MySQL Workbench](https://www.mysql.com/products/workbench/) - SGBD.
 
 
-## Versões
-VERSÃO 1.2.0
-* Front-end finalizado.
-* Back-end em finalizado.
-* Falta implementar a função de deletar apenas um usuário por vez.
+## Versions
+VERSÃO 1.0
+* Front-end finished.
+* Back-end finished.
 
-## Autor
+## Author
 * **Igor Vitor Vieira** - [IgorVVieira](https://github.com/IgorVViera)
