@@ -1,13 +1,19 @@
 # Doe_Sangue 💉
 Web system for possible blood donors, made in the [Rocketseat](https://github.com/Rocketseat) Dev Marathon. 
 
-**Key words:** JavaScript, Node.js, MySQL, Sequelize.
+**Key words:** JavaScript, Node.js, MySQL, Sequelize, React.JS.
 
 ## How to Execute 🤔
 ```
-> npm install
+> open the project
+> Ctrl + '
+> cd backend
 > npm start
-> localhost:3000
+> npm start
+> split the terminal
+> cd frontend
+> yarn add 
+> yarn start
 ```
 
 ## Made with
