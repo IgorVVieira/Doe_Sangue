@@ -1,8 +1,6 @@
 const Sequelize = require('sequelize');
+const database = require('./database');
 
-const connection = new Sequelize('doe', 'root', '0000', {
-    host: 'localhost',
-    dialect: 'mysql',
-});
+const connection = new Sequelize(database);
 
 module.exports = connection;

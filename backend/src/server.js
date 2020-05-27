@@ -5,7 +5,7 @@ const cors = require('cors');
 const routes = require('./routes');
 const connection = require('./database/Connection');
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 connection.authenticate()
     .then(() => {
