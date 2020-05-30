@@ -1,7 +1,7 @@
 # Doe_Sangue 💉
 Web system for possible blood donors, made in the [Rocketseat](https://github.com/Rocketseat) Dev Marathon. 
 
-**Key words:** JavaScript, Node.js, MySQL, Sequelize, React.JS.
+**Key words:** JavaScript, Node.js, Sequelize, React.JS, PostgreSQL.
 
 ## How to Execute 🤔
 ```
@@ -12,14 +12,15 @@ Web system for possible blood donors, made in the [Rocketseat](https://github.co
 > npm start
 > split the terminal
 > cd frontend
-> yarn add 
+> yarn install
 > yarn start
 ```
 
 ## Made with
 * [Visual Studio Code](https://code.visualstudio.com/) - Code editor.
 * [Node.js](https://nodejs.org/en/).
-* [MySQL Workbench](https://www.mysql.com/products/workbench/) - SGBD.
+* [PostgreSQL](https://www.postgresql.org/) - Database.
+* [Postbird](https://www.electronjs.org/apps/postbird) - SGBD.
 
 
 ## Versions
