@@ -7,12 +7,11 @@ const connection = require('./database/Connection');
 
 const port = process.env.PORT || 3001;
 
-connection.authenticate()
-    .then(() => {
-        console.log('Conexão Ok');
-    }).catch((err) => {
-        console.log(`Erro: ${err}`);
-    });
+try {
+    connection.authenticate();
+} catch (error) {
+    console.log(`Erro: ${error}`);
+}
 
 app.use(cors());
 app.use(express.json());

@@ -16,10 +16,12 @@ const Donors = connection.define('donors', {
     },
 });
 
-Donors.sync({
-    force: false
-}).then(() => {
-    console.log('Tabela criada');
-});
+try {
+    Donors.sync({
+        force: false
+    });
+} catch (err) {
+    console.log(`Erro: ${err}`);
+}
 
 module.exports = Donors;

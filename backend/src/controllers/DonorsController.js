@@ -10,8 +10,6 @@ module.exports = {
 
     async store(req, res) {
         const {
-            name,
-            email,
             blood
         } = req.body;
 
