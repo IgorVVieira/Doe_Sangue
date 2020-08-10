@@ -1,4 +1,3 @@
-const bloods = require('../models/Bloods');
 const Donors = require('../models/Donors');
 
 module.exports = {
@@ -13,9 +12,6 @@ module.exports = {
             blood
         } = req.body;
 
-        if (bloods.indexOf(blood) === -1) {
-            return res.send();
-        }
         const donor = await Donors.create(req.body);
         return res.json(donor);
     },
@@ -27,5 +23,4 @@ module.exports = {
         });
         return res.send();
     },
-
 };
