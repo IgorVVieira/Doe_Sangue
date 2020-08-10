@@ -8,11 +8,11 @@ Web system for possible blood donors, made in the [Rocketseat](https://github.co
 > open the project
 > Ctrl + '
 > cd backend
-> npm start
-> npm start
+> yarn
+> yarn dev
 > split the terminal
 > cd frontend
-> yarn install
+> yarn 
 > yarn start
 ```
 
