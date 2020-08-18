@@ -10,18 +10,20 @@ Web system for possible blood donors, made in the [Rocketseat](https://github.co
 > open the project
 > Ctrl + '
 > cd backend
-> yarn
-> yarn dev
-> yarn sequelize db:create
-> yarn sequelize db:migrate
 ```
+- > yarn
+ - > yarn dev
+- > yarn sequelize db:create
+- > yarn sequelize db:migrate
+
 * WEB
 ```
 > Split the terminal
 > cd frontend
-> yarn
-> yarn start
 ```
+- > yarn
+- > yarn start
+
 
 ## Made with
 * [Visual Studio Code](https://code.visualstudio.com/) - Code editor.
