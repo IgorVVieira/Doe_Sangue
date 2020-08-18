@@ -3,15 +3,9 @@ const app = express();
 const cors = require('cors');
 
 const routes = require('./routes');
-const connection = require('./database/Connection');
+require('./database/connection');
 
 const port = process.env.PORT || 3001;
-
-try {
-    connection.authenticate();
-} catch (error) {
-    console.log(`Erro: ${error}`);
-}
 
 app.use(cors());
 app.use(express.json());

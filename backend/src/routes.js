@@ -1,12 +1,12 @@
 const express = require('express');
 const routes = express.Router();
-const DonorsController = require('./controllers/DonorsController');
-const DonorsMiddlewares = require('./middlewares/DonorsMiddlewares');
 
-routes.get('/donors', DonorsController.index);
+const DonorController = require('./controllers/DonorController');
 
-routes.post('/donors', DonorsMiddlewares.checkTypeBlood, DonorsController.store);
+routes.get('/donors', DonorController.index);
 
-routes.post('/delete', DonorsController.delete);
+routes.post('/donors', DonorController.store);
+
+routes.post('/delete', DonorController.delete);
 
 module.exports = routes;

@@ -4,15 +4,22 @@ Web system for possible blood donors, made in the [Rocketseat](https://github.co
 **Key words:** JavaScript, Node.js, Sequelize, React.JS, PostgreSQL.
 
 ## How to Execute 🤔
+
+* API
 ```
 > open the project
 > Ctrl + '
 > cd backend
 > yarn
 > yarn dev
-> split the terminal
+> yarn sequelize db:create
+> yarn sequelize db:migrate
+```
+* WEB
+```
+> Split the terminal
 > cd frontend
-> yarn 
+> yarn
 > yarn start
 ```
 
