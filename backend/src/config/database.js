@@ -3,8 +3,9 @@ module.exports = {
     host: 'localhost',
     username: 'postgres',
     password: '0000',
-    database: 'doe_sangue',
+    database: 'hemocentro',
     define: {
-        timeStamps: true,
+        timestamps: true,
+        underscored: true,
     },
 };

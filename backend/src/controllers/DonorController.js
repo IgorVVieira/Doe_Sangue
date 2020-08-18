@@ -7,18 +7,7 @@ module.exports = {
     },
 
     async store(req, res) {
-        // const {
-        //     blood
-        // } = req.body;
         const donor = await Donor.create(req.body);
         return res.json(donor);
-    },
-
-    async delete(req, res) {
-        await Donor.destroy({
-            where: {},
-            truncate: true,
-        });
-        return res.send();
-    },
-};
+    }
+}
