@@ -2,9 +2,12 @@ const express = require('express');
 const routes = express.Router();
 
 const DonorController = require('./controllers/DonorController');
-const DonorsMiddleware = require('./middlewares/DonorMiddleware');
+const DonorMiddleware = require('./middlewares/DonorMiddleware');
 
 routes.get('/donors', DonorController.index);
-routes.post('/donors', DonorsMiddleware.checkTypeBlood, DonorController.store);
+routes.get('/donors/:id', DonorController.show);
+routes.post('/donors', DonorMiddleware.checkTypeBlood, DonorController.store);
+routes.put('/donors/:id', DonorMiddleware.checkTypeBlood, DonorController.update);
+routes.delete('/donors/:id', DonorController.delete);
 
 module.exports = routes;
