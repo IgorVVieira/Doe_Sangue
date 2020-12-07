@@ -28,6 +28,7 @@ form input::placeholder {
 
 form button {
     font-weight: bold;
+    border: 1px solid black;
 }
 
 .form h2 {

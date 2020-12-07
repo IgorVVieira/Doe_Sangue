@@ -11,8 +11,6 @@ const Header = () => {
             <p>Até 3 vidas com uma doação</p>
             <p>Mais de 38.000 doações são necessárias todos os dias</p>
             <p>Apenas 1,9% da população brasileira doa sangue.</p>
-
-            <button>Quero ajudar</button>
         </div>
     );
 }
