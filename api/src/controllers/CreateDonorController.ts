@@ -4,7 +4,7 @@ import { CreateDonorService } from "../services/CreateDonorService";
 import { container } from "tsyringe";
 
 export class CreateDonorController {
-    async handle(request: Request, response: Response) {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { name, email, blood } = request.body;
 
         const createDonorService = container.resolve(CreateDonorService);
