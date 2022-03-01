@@ -4,7 +4,7 @@ import './style.css';
 
 const Footer = () => {
     return (
-        <footer>Doe 💉, doe ❤.</footer>
+        <footer>Doe <span role='img' aria-labelledby=''>💉</span>, doe <span role='img'>❤</span>.</footer>
     );
 }
 
