@@ -1,5 +1,5 @@
 # Doe_Sangue 💉
-Web system for possible blood donors, made in the [Rocketseat](https://github.com/Rocketseat) Dev Marathon. 
+Web system for possible blood donors. 
 
 **Key words:** JavaScript, Node.js, Sequelize, React.JS, PostgreSQL.
 
