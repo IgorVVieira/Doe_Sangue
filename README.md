@@ -9,12 +9,11 @@ Web system for possible blood donors, made in the [Rocketseat](https://github.co
 ```
 > open the project
 > Ctrl + '
-> cd backend
+> cd api
 ```
 - > yarn
- - > yarn dev
-- > yarn sequelize db:create
-- > yarn sequelize db:migrate
+- > yarn typeorm migration:run
+- > yarn dev
 
 * WEB
 ```
